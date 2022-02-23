@@ -93,7 +93,7 @@ export default {
         display: block;
         border-radius: 8px 8px 0 0;
         z-index: 1;
-        widows: 100%;
+        width: 100%;
         min-height: 200px;
         object-fit: cover;
     }
