@@ -1,0 +1,98 @@
+rreshti 13 tek Home.vue;
+
+<div class = "updates">
+<div class = "container">
+<h2>never miss a post. Register for your free account today </h2>
+<router-link class = "router-button" to = "#">
+Register for EVE <Arrow class = "arrow arrow-light"/>
+</router-link>
+</div>
+</div> 
+
+rreshti 27, dhe e shton tek components Arrow
+
+import Arrow from "..assets/Icons/arrow-right-light.svg";
+
+rreshti 72 tek style 
+
+.updates{
+.container {
+padding: 100px 25px;
+display : flex;
+flex-direction: column;
+algin-items: center;
+@media (min-width: 800px) {
+padding: 125px 25px;
+flex-direction: row;
+}
+.router-button{
+display: flex;
+font-size: 14px;
+text-decoration: none;
+@media (min-width : 800px){
+margin-left:auto;
+}
+}
+h2{
+font-weight : 300;
+font-size: 32px;
+max-width : 425px;
+width: 100%;
+text-align: center;
+text-transform: uppercase;
+@media (min-width: 800px) {
+text-align: initial;
+font-size: 40px;
+}
+}
+}
+}  
+
+tek App.vue perfundi .arrow-light
+button,
+.router-button {
+transition : 500ms ease all;
+cursor: pointer;
+margin-top: 24px;
+padding: 12px 24px;
+background-color: #303030;
+color: #fff;
+border-radius: 20px;
+border: none;
+text-transform: uppercase;
+
+&:focus{
+outline:none;}
+}
+&:hover{
+background-color: rgba(48, 48, 48, 0.7);
+}
+}
+ .button-ghost{
+ color: #000;
+ padding:0;
+ border-radius:0;
+ margin-top: 50px;
+ font-size: 15px;
+ font-weight: 500;
+ background-color: transparent;
+ @media (min-width: 700px){
+ margin-top:0;
+ margin-left:auto;
+ }
+ i{
+ margin-left: 8px;
+ }
+ }
+button-light {
+background-color: transparent;
+border: 2px solid #fff;
+color: #fff;
+}
+.button-inactive{
+pointer-events: none !important;
+cursor: none !important;
+background-color: rgba(128, 128, 128, 0.5) !important;
+} 
+
+perfndi blog-card
