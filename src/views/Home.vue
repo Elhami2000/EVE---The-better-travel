@@ -30,7 +30,7 @@ export default {
   components: { BlogPost, BlogCard, Arrow},
   data(){
     return{
-      welcomeScreen:{
+      WelcomeScreen:{
         title:"Welcome",
         blogPost:"Linja te reja qdo dite",
         WelcomeScreen:true,
@@ -46,14 +46,14 @@ export default {
         blogHTML:"This another line 2",
         blogCoverPhoto:"designed-for-everyone"
       }],
-      sampleBlogCards: [
-        { blogTitle: "Blog Card #1", blogCoverPhoto: "stock-1", blogDate: "February 23, 2022"},
-        { blogTitle: "Blog Card #2", blogCoverPhoto: "stock-2", blogDate: "February 23, 2022"},
-        { blogTitle: "Blog Card #3", blogCoverPhoto: "stock-3", blogDate: "February 23, 2022"},
-        { blogTitle: "Blog Card #4", blogCoverPhoto: "stock-4", blogDate: "February 23, 2022"},
-      ],
+
     };
   },
+  computed:{
+    sampleBlogCards(){
+      return this.$store.state.sampleBlogCards;
+    }
+  }
 };
 </script>
 
