@@ -27,7 +27,7 @@ export default {
       {
         tile:"Title 3",
         blogHTML:"This another line 2",
-        blogCoverPhoto:"designer-for-everyone"
+        blogCoverPhoto:"designed-for-everyone"
 
       },
       ],
