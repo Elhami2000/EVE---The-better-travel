@@ -2,8 +2,9 @@
   <div class="app-wrapper">
     <div class="app">
       <Navigation />
-      <Footer/>
+     
       <router-view />
+       <Footer/>
     </div>
   </div>
 </template>
