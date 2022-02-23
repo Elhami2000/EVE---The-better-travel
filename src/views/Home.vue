@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <BlogPost :post="welcomeScreen" />
+    <BlogPost :post="WelcomeScreen" />
     <BlogPost :post="post" v-for="(post, index) in sampleBlogPost" :key="index" />
     <div class="blog-card-wrap">
       <div class="container">
