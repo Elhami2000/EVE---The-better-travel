@@ -10,7 +10,7 @@
     <router-link class="link" :to="{name: 'Home'}">Home</router-link>
     <router-link class="link" :to="{name:'BusLines'}">Bus Lines</router-link>
     <router-link class="link" to="#">Create Line</router-link>
-    <router-link class="link" to="#">Login/Register</router-link>
+    <router-link class="link" :to="{name:'Login'}">Login/Register</router-link>
 
  </ul>
  </div>
@@ -21,7 +21,7 @@
     <router-link class="link" :to="{name: 'Home'}">Home</router-link>
     <router-link class="link" :to="{name:'BusLines'}">Bus Lines</router-link>
     <router-link class="link" to="#">Create Line</router-link>
-    <router-link class="link" to="#">Login/Register</router-link>
+    <router-link class="link" :to="{name:'Login'}">Login/Register</router-link>
 
  </ul>
  </transition>
