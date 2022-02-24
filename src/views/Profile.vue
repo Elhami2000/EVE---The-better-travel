@@ -1,6 +1,6 @@
 <template> 
    <div class = "profile">
-   <Modal v-if="modalActive" : modalMessage="modalMessage" v-on:close-modal="closeModal"/>
+   <Modal v-if="modalActive" :modalMessage="modalMessage" v-on:close-modal="closeModal"/>
    <div class="container">
     <h2>Account Settings</h2> 
    <div class="profile-info">
@@ -34,7 +34,7 @@
 
 <script>
 import Modal from "../components/Modal";
-import AdminIcon from "../assets/Icons/user-crown-light.svg "; 
+import AdminIcon from "../assets/Icons/user-crown-light.svg"; 
 export default {
 
     components:{
@@ -44,7 +44,7 @@ export default {
 data(){
     return{
         modalMessage: "Changes were saved: ",
-        modalActive: null,
+        modalActive: true,
     };
 },
 methods: {

@@ -27,14 +27,18 @@
             </div>
             <div class="options">
                 <div class="option">
-                    <userIcon class="icon" />
-                    <p>Profile</p>
+                    <router-link class="option" :to="{name: 'Profile'}">
+                        <userIcon class="icon" />
+                        <p>Profile</p>
+                    </router-link>
                 </div>
             </div>
             <div class="options">
                 <div class="option">
-                    <adminIcon class="icon" />
-                    <p>Admin</p>
+                    <router-link class="option" :to="{name: 'Admin'}">
+                        <adminIcon class="icon" />
+                        <p>Admin</p>
+                    </router-link>
                 </div>
             </div>
             <div @click="signOut" class="options">
