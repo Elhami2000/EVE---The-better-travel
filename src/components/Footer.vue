@@ -25,10 +25,10 @@
             <router-link class="link" :to="{ name: 'BusLines' }"
               >Blogs</router-link
             >
-            <router-link v-if="user" class="link" to="#"
+            <router-link v-if="admin" class="link" to="#"
               >Create Post</router-link
             >
-            <router-link v-if="user" class="link" :to="{ name: 'Login' }"
+            <router-link v-if="!user" class="link" :to="{ name: 'Login' }"
               >Login/Register</router-link
             >
           </ul>
@@ -58,6 +58,9 @@
            user() {
              return this.$store.state.user;
            },
+            admin(){
+            return this.$store.state.profileAdmin;
+        },
          },
      };
 </script>

@@ -67,7 +67,8 @@ const routes = [
     meta :{
       title:'Admin'
     }
-  }
+  
+},
 ];
 
 const router = new VueRouter({
