@@ -44,8 +44,7 @@ export default new Vuex.Store({
     createFileURL(state, payload){
       state.blogPhotoFileURL = payload;
     },
-
-    openPhotoPreview (state){
+    openPhotoPreview(state){
       state.blogPhotoPreview = !state.blogPhotoPreview;
     },
 
