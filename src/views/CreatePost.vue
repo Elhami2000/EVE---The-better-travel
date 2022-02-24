@@ -65,7 +65,7 @@ export default {
 
         imageHandler(file, Editor, cursorLocation, resetUplpader){
             const storageRef = firebase.storage().ref();
-            const docRef = storageRef.child('documents/blogPostPhotos/${file.name}');
+            const docRef = storageRef.child(`documents/blogPostPhotos/${file.name}`);
             docRef.put(file).on("state_changed" , (snapshot) => {
                 console.log(snapshot);
             }, 
