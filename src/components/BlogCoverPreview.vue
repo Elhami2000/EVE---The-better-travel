@@ -1,7 +1,7 @@
 <template>
   <div class="modal" ref="modal">
       <div class="modal-content">
-          <close @click="closePreview" class="icnon" />
+          <close @click="closePreview" class="icon" />
           <img :src="this.blogCoverPhoto"/>
 
       </div>
@@ -68,7 +68,7 @@ export default {
                 display: block;
                 width: auto;
                 height: 100%;
-                            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06) ;
+                box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06) ;
 
             }
 
