@@ -36,7 +36,7 @@
 import Modal from "../components/Modal";
 import AdminIcon from "../assets/Icons/user-crown-light.svg"; 
 export default {
-
+    name: "Profile",
     components:{
         Modal,
         AdminIcon,
@@ -44,7 +44,7 @@ export default {
 data(){
     return{
         modalMessage: "Changes were saved: ",
-        modalActive: true,
+        modalActive: null,
     };
 },
 methods: {
