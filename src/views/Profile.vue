@@ -36,12 +36,51 @@
 import Modal from "../components/Modal";
 import AdminIcon from "../assets/Icons/user-crown-light.svg "; 
 export default {
-    
+
     components:{
         Modal,
         AdminIcon,
     },
-
+data(){
+    return{
+        modalMessage: "Changes were saved: ",
+        modalActive: null,
+    };
+},
+methods: {
+    closeModal(){
+        this.modalActive = !this.modalActive;
+    }
+},
+computed:{
+    firstName: {
+        get(){
+            return this.$store.state.profileFirstName;
+        },
+        set(payload){
+            this.$store.comit("changeFirstName", payload);
+        },
+    },
+    lastName: {
+        get(){
+            return this.$store.state.profileLastName;
+        },
+        set(payload){
+            this.$store.comit("changeLastName", payload);
+        },
+    },
+    username: {
+        get(){
+            return this.$store.state.profileUsername;
+        },
+        set(payload){
+            this.$store.comit("changeUsername", payload);
+        },
+    },
+    email(){
+        return this.$store.state.profileEmail;
+    },
+},
 };
 </script>
 
