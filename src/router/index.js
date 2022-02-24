@@ -8,7 +8,9 @@ import ForgotPassword from "../views/ForgotPassword.vue";
 import Profile from "../views/Profile.vue";
 import Admin from "../views/Admin.vue";
 import CreatePost from "../views/CreatePost";
-import BlogPreview from "../views/BlogPreview.vue"
+import BlogPreview from "../views/BlogPreview.vue";
+import ViewLine from "../views/ViewLine.vue";
+
 
 
 
@@ -85,6 +87,14 @@ const routes = [
     component: BlogPreview,
     meta :{
       title:'Preview Line post'
+    }
+  },
+  {
+    path: "/view-line",
+    name: "ViewLine",
+    component: ViewLine,
+    meta :{
+      title:'View Line post'
     }
   },
 ];
