@@ -90,7 +90,7 @@ const routes = [
     }
   },
   {
-    path: "/view-line",
+    path: "/view-line/:blogid",
     name: "ViewLine",
     component: ViewLine,
     meta :{
