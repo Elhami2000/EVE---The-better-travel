@@ -10,12 +10,10 @@ import Admin from "../views/Admin.vue";
 import CreatePost from "../views/CreatePost";
 import BlogPreview from "../views/BlogPreview.vue";
 import ViewLine from "../views/ViewLine.vue";
-<<<<<<< Updated upstream
 import EditLine from "../views/EditLine";
-=======
 import firebase from "firebase/app";
 import "firebase/auth";
->>>>>>> Stashed changes
+
 
 
 
