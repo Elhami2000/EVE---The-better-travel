@@ -76,6 +76,7 @@ export default new Vuex.Store({
     updateUser(state, payload){
       state.user = payload;
     },
+    
 
     setProfileInfo(state,doc){
       state.profileId = doc.id;
@@ -107,6 +108,7 @@ export default new Vuex.Store({
         commit ("setProfileInfo", dbResults);
         commit ("setProfileInitials");
     },
+    
 
    
     async getPost({state}) {
