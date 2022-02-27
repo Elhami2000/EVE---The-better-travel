@@ -8,12 +8,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    sampleBlogCards: [
+    /*sampleBlogCards: [
       { blogTitle: "Blog Card #1", blogCoverPhoto: "stock-1", blogDate: "February 23, 2022"},
       { blogTitle: "Blog Card #2", blogCoverPhoto: "stock-2", blogDate: "February 23, 2022"},
       { blogTitle: "Blog Card #3", blogCoverPhoto: "stock-3", blogDate: "February 23, 2022"},
       { blogTitle: "Blog Card #4", blogCoverPhoto: "stock-4", blogDate: "February 23, 2022"},
-    ],
+    ],*/
+    blogPosts: [],
+    postLoaded: null,
     blogHTML: "Write your line title here...",
     blogTitle: "",
     blogPhotoName: "",
@@ -27,6 +29,14 @@ export default new Vuex.Store({
     profileUsername: null,
     profileId: null,
     profileInitials: null,
+  },
+  getters: {
+    blogPostsFeed(state) {
+      return state.blogPosts.slice(0, 2);
+    },
+    blogPostsCards(state){
+      return state.blogPosts.slice(2, 6);
+    },
   },
   mutations: {
     newBlogPost(state, payload){
@@ -98,10 +108,26 @@ export default new Vuex.Store({
         commit ("setProfileInitials");
     },
 
-    async deletePost ({commit}, payload) {
-      const getPost = await db.collection("blogPosts").doc(payload);
-      await getPost.delete();
-      commit ("filterBlogPost", payload);
+   
+    async getPost({state}) {
+      const dataBase = await db.collection('blogPosts').orderBy('date', 'desc');
+      const dbResults = await dataBase.get();
+      dbResults.forEach((doc) => {
+        if(!state.blogPosts.some(post => post.blogID === doc.id)) {
+          const data = {
+            blogID: doc.data().blogID,
+            blogHTML: doc.data().blogHTML,
+            blogCoverPhoto: doc.data().blogCoverPhoto,
+            blogTitle: doc.data().blogTitle,
+            blogDate: doc.data().blogDate,
+          };
+          state.blogPosts.push(data);
+        }
+      });
+      state.postLoaded = true;
+      //Shfaq nese metoda getPost funksionon.
+      //console.log(state.blogPosts);
+
     },
 
     async updateUserSettings({commit, state}){

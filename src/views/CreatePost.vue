@@ -83,6 +83,7 @@ export default {
         uploadLine(){
             if (this.blogTitle.length !==0 && this.blogHTML.length !== 0){
                 if(this.file){
+                    this.loading = true;
                     const storageRef = firebase.storage().ref();
                     const docRef = storageRef.child(`documents/BlogCoverPhotos/${this.$store.state.blogPhotoName}`);
                     docRef.put(this.file).on("state_changed", (snapshot) =>{
@@ -90,6 +91,7 @@ export default {
                     }, (err)=>{
                         //
                         console.log(err);
+                        this.loading = false;
                     },
                     async () => {
                         const downloadURL = await docRef.getDownloadURL();
@@ -104,8 +106,10 @@ export default {
                             blogTitle:this.blogTitle,
                             profileId:this.profileId,
                             date: timestamp,
-                        })
-                        this.$router.push({name:"ViewLine"});
+                        });
+                        await this.$store.dispatch("getPost");
+                        this.loading = false;
+                        this.$router.push({name:"ViewLine", params: {blogid: dataBase.id}});
 
                     }
                     );
