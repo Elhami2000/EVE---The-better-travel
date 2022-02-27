@@ -1,11 +1,11 @@
 <template>
   <div class="blog-card">
       <div v-show="editPost" class="icons">
-          <div class="icon">
+          <div @click="editLine" class="icon">
               <Edit class="edit" />
           </div>
           <div class="icon">
-              <Delete class="delete" />
+              <Delete @click="deletePost" class="delete" />
           </div>
       </div>
       <img :src="require(`../assets/blogCards/${post.blogCoverPhoto}.jpg`)" alt="">
@@ -29,10 +29,20 @@ export default {
         Edit,
         Delete,
     },
+    methods:{
+        deletePost() {
+            this.$store.dispatch("deletePost", this.post.blogID);
+        },
+          editLine(){
+            
+          this.$router.push ({name :'EditLine', params:{blogid:this.post.blogID}});
+        },
+    },
     computed: {
         editPost(){
+
             return this.$store.state.editPost;
-        }
+        },
     }
 };
 </script>

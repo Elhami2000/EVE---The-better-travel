@@ -10,6 +10,7 @@ import Admin from "../views/Admin.vue";
 import CreatePost from "../views/CreatePost";
 import BlogPreview from "../views/BlogPreview.vue";
 import ViewLine from "../views/ViewLine.vue";
+import EditLine from "../views/EditLine";
 
 
 
@@ -90,11 +91,19 @@ const routes = [
     }
   },
   {
-    path: "/view-line",
+    path: "/view-line/:blogid",
     name: "ViewLine",
     component: ViewLine,
     meta :{
       title:'View Line post'
+    }
+  },
+  {
+    path: "/edit-line",
+    name: "EditLine",
+    component: EditLine,
+    meta :{
+      title:'Edit Line post'
     }
   },
 ];
