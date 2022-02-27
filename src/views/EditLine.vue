@@ -19,8 +19,8 @@
               <vue-editor :editorOptions="editorSettings" v-model="blogHTML" useCustomImageHandler  @image-added="imageHandler"/>
           </div>
           <div class="blog-actions">
-              <button @click="uploadLine">Publish Line</button>
-              <router-link class="router-button" :to="{name: 'BlogPreview'}">Line Preview</router-link>
+              <button @click="updateLine">Save Changes</button>
+              <router-link class="router-button" :to="{name: 'BlogPreview'}">Preview Changes</router-link>
           </div>
       </div>
   </div>
@@ -32,7 +32,7 @@ import firebase from "firebase/app";
 import "firebase/storage";
 import db from "../firebase/firebaseInit";
 import Quill from "quill";
-//import Loading from "../components/Loading.vue";
+// import Loading from "../components/Loading.vue";
 window.Quill = Quill;
 const ImageResize = require("quill-image-resize-module").default;
 Quill.register("modules/imageResize", ImageResize);
@@ -55,7 +55,7 @@ export default {
     },
     components :{
         BlogCoverPreview,
-       // Loading,
+        //Loading,
     },
     async mounted (){
         this.routeID = this.$route.params.blogid;
@@ -92,7 +92,8 @@ export default {
             );
         },
 
-        uploadLine(){
+       async  updateLine(){
+           const dataBase = await db.collection('blogPosts').doc(this.routeID);
             if (this.blogTitle.length !==0 && this.blogHTML.length !== 0){
                 if(this.file){
                     const storageRef = firebase.storage().ref();
@@ -100,7 +101,7 @@ export default {
                     docRef.put(this.file).on("state_changed", (snapshot) =>{
                         console.log(snapshot);
                     }, (err)=>{
-                        //
+                        this.loading = false;
                         console.log(err);
                     },
                     async () => {
@@ -123,12 +124,16 @@ export default {
                     );
                     return;
                 }
-             this.error = true;
-            this.errorMsg = "Please upload photo!";
-            setTimeout(() => {
-            this.error = false;
-            }, 5000);
-            return;
+                this.loading = true;
+                await dataBase.update({
+                    blogHTML:this.blogHTML,
+                    blogTitle: this.blogTitle,
+                });
+                await this.$store.dispatch("updateLine", this.routeID);
+                this.loading = false;
+                this.$router.push({name:"ViewLine", params:{blogid:dataBase.id}})
+                return;
+
             }
             this.error = true;
             this.errorMsg = "Please fill out the line!";

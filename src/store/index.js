@@ -120,6 +120,7 @@ export default new Vuex.Store({
             blogCoverPhoto: doc.data().blogCoverPhoto,
             blogTitle: doc.data().blogTitle,
             blogDate: doc.data().blogDate,
+            blogCoverPhotoName: doc.data().blogCoverPhotoName,
           };
           state.blogPosts.push(data);
         }
@@ -128,6 +129,17 @@ export default new Vuex.Store({
       //Shfaq nese metoda getPost funksionon.
       //console.log(state.blogPosts);
 
+    },
+
+    async updatePost ({commit, dispatch},payload){
+      commit ("filterBlogPost", payload);
+      await dispatch("getPost");
+    },
+
+    async deletePost ({commit}, payload) {
+      const getPost = await db.collection("blogPosts").doc(payload);
+      await getPost.delete();
+      commit ("filterBlogPost", payload);
     },
 
     async updateUserSettings({commit, state}){
