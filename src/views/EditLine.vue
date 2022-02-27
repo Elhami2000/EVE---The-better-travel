@@ -106,17 +106,16 @@ export default {
                     },
                     async () => {
                         const downloadURL = await docRef.getDownloadURL();
-                        const timestamp = await Date.now();
+                       // const timestamp = await Date.now();
                         const dataBase = await db.collection("blogPosts").doc();
 
-                        await dataBase.set({
-                            blogID:dataBase.id,
+                        await dataBase.update({
+                            
                             blogHTML: this.blogHTML,
                             blogCoverPhoto: downloadURL,
                             blogCoverPhotoName: this.blogCoverPhotoName,
                             blogTitle:this.blogTitle,
-                            profileId:this.profileId,
-                            date: timestamp,
+                          
                         })
                         this.$router.push({name:"ViewLine"});
 
@@ -129,7 +128,7 @@ export default {
                     blogHTML:this.blogHTML,
                     blogTitle: this.blogTitle,
                 });
-                await this.$store.dispatch("updateLine", this.routeID);
+                await this.$store.dispatch("updatePost", this.routeID);
                 this.loading = false;
                 this.$router.push({name:"ViewLine", params:{blogid:dataBase.id}})
                 return;
