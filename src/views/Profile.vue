@@ -64,7 +64,7 @@ computed:{
             return this.$store.state.profileFirstName;
         },
         set(payload){
-            this.$store.comit("changeFirstName", payload);
+            this.$store.commit("changeFirstName", payload);
         },
     },
     lastName: {
@@ -72,7 +72,7 @@ computed:{
             return this.$store.state.profileLastName;
         },
         set(payload){
-            this.$store.comit("changeLastName", payload);
+            this.$store.commit("changeLastName", payload);
         },
     },
     username: {
@@ -80,7 +80,7 @@ computed:{
             return this.$store.state.profileUsername;
         },
         set(payload){
-            this.$store.comit("changeUsername", payload);
+            this.$store.commit("changeUsername", payload);
         },
     },
     email(){
