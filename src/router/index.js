@@ -81,7 +81,7 @@ const routes = [
     meta :{
       title:'Admin',
       requiresAuth: true,
-      requiresAdmin: true,
+      
     }
   },
   {
@@ -91,7 +91,7 @@ const routes = [
     meta :{
       title:'Create Line',
       requiresAuth: true,
-      requiresAdmin: true,
+     
     }
   },
   {

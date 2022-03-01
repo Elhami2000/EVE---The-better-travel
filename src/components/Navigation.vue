@@ -126,7 +126,7 @@ export default {
     },
 };
 </script>
- <style lang="scss" scoped>
+<style lang="scss" scoped>
     header{
         background-color: #fff;
         padding: 0 25px;

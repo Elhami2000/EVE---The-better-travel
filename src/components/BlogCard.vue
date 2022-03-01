@@ -4,8 +4,8 @@
           <div @click="editLine" class="icon">
               <Edit class="edit" />
           </div>
-          <div class="icon">
-              <Delete @click="deletePost" class="delete" />
+          <div @click="deletePost"  class="icon">
+              <Delete class="delete" />
           </div>
       </div>
       <img :src="post.blogCoverPhoto" alt="">
