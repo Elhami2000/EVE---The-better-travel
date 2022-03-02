@@ -1,6 +1,6 @@
 <template>
   <div class="create-post">
-    <BlogCoverPreview  v-show ="this.$store.state.blogPhotoPreview"  />
+    <BlogCoverPreview v-show="this.$store.state.blogPhotoPreview"  />
     
       <div class="container">
           <div :class="{invisible: !error}" class="err-message">
@@ -11,7 +11,7 @@
               <div class="upload-file">
                   <label for="blog-photo">Upload Cover Photo</label>
                   <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg"/>
-                  <button  @click= "openPreview" class="preview" :class="{'button-inactive' : !this.$store.state.blogPhotoFileURL}">Preview Photo</button>
+                 <!--- <button  @click="openPreview" class="preview" :class="{'button-inactive' : !this.$store.state.blogPhotoFileURL}">Preview Photo</button> -->
                   <span>File Chosen: {{ this.$store.state.blogPhotoName }}</span>
               </div>
           </div>
@@ -106,7 +106,7 @@ export default {
                     },
                     async () => {
                         const downloadURL = await docRef.getDownloadURL();
-                       // const timestamp = await Date.now();
+                       const timestamp = await Date.now();
                         const dataBase = await db.collection("blogPosts").doc();
 
                         await dataBase.update({

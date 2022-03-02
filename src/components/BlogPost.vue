@@ -6,7 +6,7 @@
               <h2 v-else>{{post.blogTitle}}</h2>
               <p v-if="post.WelcomeScreen">{{post.blogPost}}</p>
               <p class="content-preview" v-else v-html="post.blogHTML"></p>
-              <router-link class="link link-light" v-if="post.WelcomeScreen" to="#">
+              <router-link class="link link-light" v-if="post.WelcomeScreen"  :to="{name: 'Login'}">
                  Login/Register<Arrow class="arrow arrow-light"/>
               </router-link>
 

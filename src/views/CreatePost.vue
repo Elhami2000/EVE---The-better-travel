@@ -11,7 +11,7 @@
               <div class="upload-file">
                   <label for="blog-photo">Upload Cover Photo</label>
                   <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg"/>
-                  <button  @click="openPreview" class="preview" :class="{'button-inactive' : !this.$store.state.blogPhotoFileURL}">Preview Photo</button>
+                <!--  <button  @click="openPreview" class="preview" :class="{'button-inactive' : !this.$store.state.blogPhotoFileURL}">Preview Photo</button> -->
                   <span>File Chosen: {{ this.$store.state.blogPhotoName }}</span>
               </div>
           </div>

@@ -122,7 +122,7 @@ const routes = [
     meta :{
       title:'Edit Line post',
       requiresAuth: false,
-      requiresAdmin: true,
+      requiresAdmin: true,  
     }
   },
 ];
