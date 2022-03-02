@@ -1,17 +1,17 @@
 <template>
   <div class="create-post">
-    <BlogCoverPreview  v-show ="this.$store.state.blogPhotoPreview"  />
+    <BlogCoverPreview  v-show="this.$store.state.blogPhotoPreview"  />
     
       <div class="container">
           <div :class="{invisible: !error}" class="err-message">
               <p><span>Error:</span>{{ this.errorMsg }}</p>
-          </div>
+          </div> 
           <div class="blog-info">
               <input type="text" placeholder="Enter Line Title" v-model="blogTitle">
               <div class="upload-file">
                   <label for="blog-photo">Upload Cover Photo</label>
                   <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg"/>
-                  <button  @click= "openPreview" class="preview" :class="{'button-inactive' : !this.$store.state.blogPhotoFileURL}">Preview Photo</button>
+                  <button  @click="openPreview" class="preview" :class="{'button-inactive' : !this.$store.state.blogPhotoFileURL}">Preview Photo</button>
                   <span>File Chosen: {{ this.$store.state.blogPhotoName }}</span>
               </div>
           </div>
@@ -64,12 +64,12 @@ export default {
             this.$store.commit("openPhotoPreview");
         },
 
-        imageHandler(file, Editor, cursorLocation, resetUplpader){
-            const storageRef = firebase.storage().ref();
-            const docRef = storageRef.child(`documents/blogPostPhotos/${file.name}`);
-            docRef.put(file).on("state_changed" , (snapshot) => {
-                console.log(snapshot);
-            }, 
+            imageHandler(file, Editor, cursorLocation, resetUplpader){
+                const storageRef = firebase.storage().ref();
+                const docRef = storageRef.child(`documents/blogPostPhotos/${file.name}`);
+                docRef.put(file).on("state_changed" , (snapshot) => {
+                    console.log(snapshot);
+                }, 
              (err) => {
                 console.log(err);
             }, async  () => {
@@ -83,7 +83,6 @@ export default {
         uploadLine(){
             if (this.blogTitle.length !==0 && this.blogHTML.length !== 0){
                 if(this.file){
-                    this.loading = true;
                     const storageRef = firebase.storage().ref();
                     const docRef = storageRef.child(`documents/BlogCoverPhotos/${this.$store.state.blogPhotoName}`);
                     docRef.put(this.file).on("state_changed", (snapshot) =>{
@@ -91,7 +90,6 @@ export default {
                     }, (err)=>{
                         //
                         console.log(err);
-                        this.loading = false;
                     },
                     async () => {
                         const downloadURL = await docRef.getDownloadURL();
@@ -106,10 +104,8 @@ export default {
                             blogTitle:this.blogTitle,
                             profileId:this.profileId,
                             date: timestamp,
-                        });
-                        await this.$store.dispatch("getPost");
-                        this.loading = false;
-                        this.$router.push({name:"ViewLine", params: {blogid: dataBase.id}});
+                        })
+                        this.$router.push({name:"ViewLine"});
 
                     }
                     );

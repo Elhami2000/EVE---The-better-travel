@@ -9,7 +9,7 @@
  <ul v-show="!mobile">
     <router-link class="link" :to="{name: 'Home'}">Home</router-link>
     <router-link class="link" :to="{name:'BusLines'}">Bus Lines</router-link>
-    <router-link class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
+    <router-link v-if="user" class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
     <router-link v-if="!user" class="link" :to="{name:'Login'}">Login/Register</router-link>
 
  </ul>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="options">
-                <div class="option">
+                <div  class="option">
                     <router-link class="option" :to="{name: 'Admin'}">
                         <adminIcon class="icon" />
                         <p>Admin</p>
@@ -52,11 +52,11 @@
  </div>
  </nav>
  <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile"/>
- <transition name = "mobile-nav">
+ <transition name="mobile-nav">
   <ul class="mobile-nav" v-show="mobileNav">
     <router-link class="link" :to="{name: 'Home'}">Home</router-link>
     <router-link class="link" :to="{name:'BusLines'}">Bus Lines</router-link>
-    <router-link class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
+    <router-link v-if="user" class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
     <router-link v-if="!user" class="link" :to="{name:'Login'}">Login/Register</router-link>
 
  </ul>
@@ -122,6 +122,9 @@ export default {
     computed: {
         user(){
             return this.$store.state.user;
+        },
+        admin(){
+            return this.$store.state.profileAdmin;
         },
     },
 };

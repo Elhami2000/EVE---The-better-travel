@@ -1,5 +1,5 @@
 <template> 
-   <div class = "profile">
+   <div class="profile">
    <Modal v-if="modalActive" :modalMessage="modalMessage" v-on:close-modal="closeModal"/>
    <div class="container">
     <h2>Account Settings</h2> 

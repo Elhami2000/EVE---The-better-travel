@@ -1,6 +1,6 @@
 const functions = require("firebase-functions");
 
-const admin = require("firebase-functions");
+const admin = require("firebase-admin");
 admin.initializeApp();
 
 exports.addAdminRole = functions.https.onCall((data, context) => {
@@ -14,7 +14,7 @@ exports.addAdminRole = functions.https.onCall((data, context) => {
         })
         .then(() => {
             return {
-                message: 'Succes! ${data.email} has been made an admin',
+                message: `Succes! ${data.email} has been made an admin`,
 
             };
         })
