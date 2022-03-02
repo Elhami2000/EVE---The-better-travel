@@ -121,7 +121,7 @@ const routes = [
     component: EditLine,
     meta :{
       title:'Edit Line post',
-      requiresAuth: false,
+      requiresAuth: true,
       requiresAdmin: true,  
     }
   },

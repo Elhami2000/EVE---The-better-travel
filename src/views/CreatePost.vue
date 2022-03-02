@@ -1,7 +1,7 @@
 <template>
   <div class="create-post">
     <BlogCoverPreview  v-show="this.$store.state.blogPhotoPreview"  />
-    
+    <Loading v-show="loading"/>
       <div class="container">
           <div :class="{invisible: !error}" class="err-message">
               <p><span>Error:</span>{{ this.errorMsg }}</p>
@@ -32,6 +32,7 @@ import firebase from "firebase/app";
 import "firebase/storage";
 import db from "../firebase/firebaseInit";
 import Quill from "quill";
+import Loading from '../components/Loading.vue';
 window.Quill = Quill;
 const ImageResize = require("quill-image-resize-module").default;
 Quill.register("modules/imageResize", ImageResize);
@@ -42,6 +43,7 @@ export default {
             file: null,
             error: null,
             errorMsg: null,
+            loading : null,
             editorSettings: {
                 modules: {
                     imageResize: {},
@@ -50,9 +52,11 @@ export default {
         };
     },
     components :{
-        BlogCoverPreview
+        BlogCoverPreview,
+        Loading,
     },
-    methods: {
+   
+         methods: {
         fileChange() {
             this.file = this.$refs.blogPhoto.files[0];
             const fileName = this.file.name;
@@ -83,6 +87,7 @@ export default {
         uploadLine(){
             if (this.blogTitle.length !==0 && this.blogHTML.length !== 0){
                 if(this.file){
+                    this.loading = true;
                     const storageRef = firebase.storage().ref();
                     const docRef = storageRef.child(`documents/BlogCoverPhotos/${this.$store.state.blogPhotoName}`);
                     docRef.put(this.file).on("state_changed", (snapshot) =>{
@@ -90,6 +95,7 @@ export default {
                     }, (err)=>{
                         //
                         console.log(err);
+                        this.loading = false;
                     },
                     async () => {
                         const downloadURL = await docRef.getDownloadURL();
@@ -105,6 +111,7 @@ export default {
                             profileId:this.profileId,
                             date: timestamp,
                         })
+                        this.loading = false;
                         this.$router.push({name:"ViewLine"});
 
                     }
