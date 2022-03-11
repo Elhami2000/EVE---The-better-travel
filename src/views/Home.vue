@@ -32,7 +32,7 @@ export default {
     return{
       WelcomeScreen:{
         title:"Welcome",
-        blogPost:"Linja te reja qdo dite",
+        blogPost:"Linja te reja cdo dite",
         WelcomeScreen:true,
         photo:"map",
       },
