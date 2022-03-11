@@ -34,7 +34,7 @@ export default {
         title:"Welcome",
         blogPost:"Linja te reja qdo dite",
         WelcomeScreen:true,
-        photo:"coding",
+        photo:"map",
       },
 
     };
