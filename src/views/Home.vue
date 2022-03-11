@@ -12,7 +12,7 @@
     </div>
     <div v-if="!user" class="updates">
       <div class="container">
-        <h2>never miss a post. Register for your free account today </h2>
+        <h2>Mos humbni asnje linje, regjistrohuni tani! </h2>
         <router-link class="router-button"  :to="{name: 'Register'}">
         Register for EVE <Arrow class="arrow arrow-light"/>
         </router-link>
@@ -31,7 +31,7 @@ export default {
   data(){
     return{
       WelcomeScreen:{
-        title:"Welcome",
+        title:"Mire se vini",
         blogPost:"Linja te reja cdo dite",
         WelcomeScreen:true,
         photo:"map",

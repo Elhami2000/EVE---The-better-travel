@@ -2,10 +2,10 @@
 <div class="form-wrap">
     <form class="register">
         <p class="login-register">
-            Already have an account ?
+            Keni tashmë një llogari?
             <router-link class="router-link" :to="{name:'Login'}">Login</router-link>
         </p>
-        <h2>Create Your EVE Account</h2>
+        <h2> Krijo nje llogari ne EVE</h2>
         <div class="inputs">
             <div class="input">
                 <input type="text" placeholder="First Name" v-model="firstName"/>

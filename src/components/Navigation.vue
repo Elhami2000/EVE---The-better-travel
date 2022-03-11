@@ -8,8 +8,8 @@
  <div class="nav-links">
  <ul v-show="!mobile">
     <router-link class="link" :to="{name: 'Home'}">Home</router-link>
-    <router-link class="link" :to="{name:'BusLines'}">Bus Lines</router-link>
-    <router-link v-if="admin" class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
+    <router-link class="link" :to="{name:'BusLines'}">Linjat e autobusit</router-link>
+    <router-link v-if="admin" class="link" :to="{name: 'CreatePost'}">Shto nje linje</router-link>
     <router-link v-if="!user" class="link" :to="{name:'Login'}">Login/Register</router-link>
 
  </ul>
@@ -29,7 +29,7 @@
                 <div class="option">
                     <router-link class="option" :to="{name: 'Profile'}">
                         <userIcon class="icon" />
-                        <p>Profile</p>
+                        <p>Profili</p>
                     </router-link>
                 </div>
             </div>
@@ -55,8 +55,8 @@
  <transition name="mobile-nav">
   <ul class="mobile-nav" v-show="mobileNav">
     <router-link class="link" :to="{name: 'Home'}">Home</router-link>
-    <router-link class="link" :to="{name:'BusLines'}">Bus Lines</router-link>
-    <router-link v-if="admin" class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
+    <router-link class="link" :to="{name:'BusLines'}">Linjat e autobusit</router-link>
+    <router-link v-if="admin" class="link" :to="{name: 'CreatePost'}">Shto nje linje</router-link>
     <router-link v-if="!user" class="link" :to="{name:'Login'}">Login/Register</router-link>
 
  </ul>
