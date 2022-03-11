@@ -10,7 +10,7 @@
                  Login/Register<Arrow class="arrow arrow-light"/>
               </router-link>
 
-                <router-link class="link" v-else :to="{name: 'ViewLine', params: {blogid: this.post.blogID}}">
+                <router-link class="link" v-else :to="{name: 'ViewLine', params: {blogid: this.post.blogID} }">
                  View The Post<Arrow class="arrow"/>
               </router-link>
    

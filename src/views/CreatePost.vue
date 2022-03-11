@@ -110,9 +110,10 @@ export default {
                             blogTitle:this.blogTitle,
                             profileId:this.profileId,
                             date: timestamp,
-                        })
+                        });
+                        await this.$store.dispatch("getPost")
                         this.loading = false;
-                        this.$router.push({name:"ViewLine"});
+                        this.$router.push({name:"ViewLine", params:{blogid: dataBase.id}});
 
                     }
                     );
