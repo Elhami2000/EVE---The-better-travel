@@ -1,7 +1,7 @@
 <template>
   <div class="create-post">
     <BlogCoverPreview v-show="this.$store.state.blogPhotoPreview"  />
-    
+     <Loading v-show="loading"/>
       <div class="container">
           <div :class="{invisible: !error}" class="err-message">
               <p><span>Error:</span>{{ this.errorMsg }}</p>
@@ -32,7 +32,7 @@ import firebase from "firebase/app";
 import "firebase/storage";
 import db from "../firebase/firebaseInit";
 import Quill from "quill";
-// import Loading from "../components/Loading.vue";
+import Loading from "../components/Loading.vue";
 window.Quill = Quill;
 const ImageResize = require("quill-image-resize-module").default;
 Quill.register("modules/imageResize", ImageResize);
@@ -55,7 +55,7 @@ export default {
     },
     components :{
         BlogCoverPreview,
-        //Loading,
+        Loading,
     },
     async mounted (){
         this.routeID = this.$route.params.blogid;
