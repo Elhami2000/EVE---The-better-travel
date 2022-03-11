@@ -9,7 +9,7 @@
  <ul v-show="!mobile">
     <router-link class="link" :to="{name: 'Home'}">Home</router-link>
     <router-link class="link" :to="{name:'BusLines'}">Bus Lines</router-link>
-    <router-link v-if="user" class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
+    <router-link v-if="admin" class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
     <router-link v-if="!user" class="link" :to="{name:'Login'}">Login/Register</router-link>
 
  </ul>
@@ -33,7 +33,7 @@
                     </router-link>
                 </div>
             </div>
-            <div class="options">
+            <div class="options" v-if="admin">
                 <div  class="option">
                     <router-link class="option" :to="{name: 'Admin'}">
                         <adminIcon class="icon" />
@@ -56,7 +56,7 @@
   <ul class="mobile-nav" v-show="mobileNav">
     <router-link class="link" :to="{name: 'Home'}">Home</router-link>
     <router-link class="link" :to="{name:'BusLines'}">Bus Lines</router-link>
-    <router-link v-if="user" class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
+    <router-link v-if="admin" class="link" :to="{name: 'CreatePost'}">Create Line</router-link>
     <router-link v-if="!user" class="link" :to="{name:'Login'}">Login/Register</router-link>
 
  </ul>
