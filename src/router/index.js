@@ -34,7 +34,7 @@ const routes = [
     name: "BusLines",
     component: BusLines,
     meta :{
-      title:'BusLines',
+      title:'Bus Lines',
       requiresAuth: false,
     }
   },
